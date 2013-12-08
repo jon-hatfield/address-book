@@ -15,4 +15,13 @@ public class CsvParser {
 	public static Map<Integer, Person> parseCsv(File csvFile){
 		return null;
 	}
+	
+	/**
+	 * For unit testing and injection
+	 * @param csvFile
+	 * @return
+	 */
+	public Map<Integer, Person> getParser(File csvFile){
+		return parseCsv(csvFile);
+	}
 }
