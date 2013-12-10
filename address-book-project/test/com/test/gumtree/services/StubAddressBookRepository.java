@@ -48,6 +48,6 @@ public class StubAddressBookRepository implements AddressBookRepository{
 	}
 	
 	public List<Person> getAllPeople(){
-		return (List<Person>) addressBook.values();
+		return new ArrayList<Person> (addressBook.values());
 	}
 }

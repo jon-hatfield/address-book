@@ -1,8 +1,10 @@
 package com.test.gumtree.services;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -12,6 +14,7 @@ import org.junit.rules.ExpectedException;
 import com.gumtree.entities.Person;
 import com.gumtree.exception.CsvParsingException;
 import com.gumtree.util.AddressBookUtil;
+import com.gumtree.util.Gender;
 
 public class TestAddressBookUtil {
 
@@ -32,7 +35,7 @@ public class TestAddressBookUtil {
 		Map<Integer, Person> people = instance.getParser(csvFile);
 		Assert.assertEquals(people.size(), 5);
 		
-		Person person1 = people.get(0);
+		Person person1 = people.get(1);
 		Assert.assertEquals(person1.getName(), "Bill McKnight");
 		//TODO rest of fields and test users
 	}
@@ -41,6 +44,6 @@ public class TestAddressBookUtil {
 	public void testParseCsv_invalidInput() throws CsvParsingException{
 		expected.expect(CsvParsingException.class);
 		instance.getParser(null);
-		//moving on to test the main service, then the implementations
+		//moving on to test the main service, then do the implementations
 	}
 }
